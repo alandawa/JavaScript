@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-hant-TW">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表單元素 form</title>
+    <style>
+        fieldset {
+            width: 600px;
+        }
+
+        .azure {
+            background-color: blueviolet;
+            font-size: 40pt;
+            height: 40px;
+        }
+
+        .b {
+            background-color: azure;
+            font-size: 30pt;
+            height: 40px;
+        }
+
+        .tac= {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Form Check</legend>
+
+        <div style="text-align: center;"><img id="picture" src="./Images/0.jpg" alt="" height="400px"></div>
+        <!-- <div class="tac" id="picture"><a href="https://www.lightnovel.us/"><img src="./Images/0.jpg" height="400px"  ></a></div> -->
+
+
+        <div style="text-align: center;font-size: 20pt;">
+            <span id="ph0" class="b" onclick="t0t()">1</span>
+            <span id="ph1" class="b" onclick="t1t()">2</span>
+            <span id="ph2" class="b" onclick="t2t()">3</span>
+            <span id="ph3" class="b" onclick="t3t()">4</span>
+            <span id="ph4" class="b" onclick="t4t()">5</span>
+            <span id="ph5" class="b" onclick="t5t()">6</span>
+            <span id="ph6" class="b" onclick="t6t()">7</span>
+        </div>
+
+        <div style="text-align: center;font-size: 20pt;">
+            <img src="./Images/倒轉.png" onclick="timedec()" height="100px">
+            <img id="change" src="./Images/暫停.jpg" onclick="change()" height="100px">
+            <img src="./Images/快轉.png" onclick="timeadd()" height="100px">
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </fieldset>
+
+
+
+
+
+    <script>
+        function t0t() { location.assign("https://www.lightnovel.us/") }
+        function t1t() { location.assign("https://www.ganjingworld.com/zh-TW") }
+        function t2t() { location.assign("https://www.youtube.com/") }
+        function t3t() { location.assign("https://ani.gamer.com.tw/") }
+        function t4t() { location.assign("https://www.playstation.com/zh-hant-tw/") }
+        function t5t() { location.assign("https://www.momoshop.com.tw/main/Main.jsp") }
+        function t6t() { location.assign("https://www.etmall.com.tw/") }
+
+
+
+        let flag1 = true; flag2 = false;
+        inx = 98;
+        i = inx % 7
+
+
+        function timeadd() {
+            if (flag1) {
+                inx++;
+                i = inx % 7
+            }
+        }
+        function timedec() {
+            if (flag1) {
+                inx--;
+                i = inx % 7
+            }
+        }
+
+        function change() {
+
+            if (flag1) {
+                flag1 = false; flag2 = true;
+                document.getElementById("change").src = "./Images/播放.png"
+            }
+            else if (flag2) {
+                flag1 = true; flag2 = false;
+                document.getElementById("change").src = "./Images/暫停.jpg"
+            }
+            console.log(flag1, flag2)
+        }
+        if (flag1) {
+            window.setInterval(timeadd, 3000);
+        }
+
+        function setClock() {
+            let picturetr = document.getElementById("picture");
+            // let pictureaa=document.getElementById("picturea");
+
+
+            for (j = 0; j < 7; j++) {
+                document.getElementById("ph" + j).className = "b";
+
+            }
+            document.getElementById("ph" + i).className = "azure";
+            document.getElementById("picture").src = `./Images/${i}.jpg`;
+
+            document.getElementById("picture").addEventListener("click", () => {
+                setClock();
+                switch (i) {
+                    case 0: t0t(); break;
+                    case 1: t1t(); break;
+                    case 2: t2t(); break;
+                    case 3: t3t(); break;
+                    case 4: t4t(); break;
+                    case 5: t5t(); break;
+                    case 6: t6t(); break;
+                }
+
+
+
+
+
+                //     if(i=0){t0t()}
+                // else if(i=1){t1t()}
+                // else if(i=2){t2t()}
+                // else if(i=3){t3t()}
+                // else if(i=4){t4t()}
+                // else if(i=5){t5t()}
+                // else if(i=6){t6t()}
+            })
+
+
+            // console.log(i);
+            // console.log(inx);
+            // if     (i=0){picturetr.innerHTML='<a href="https://www.lightnovel.us/"><img src="./Images/0.jpg" height="400px"  ></a>';}
+            // else if(i=1){picturetr.innerHTML='<a href="https://www.ganjingworld.com/zh-TW"><img src="./Images/1.jpg" height="400px"  ></a>';}
+            // else if(i=2){picturetr.innerHTML='<a href="https://www.youtube.com/"><img src="./Images/2.jpg" height="400px"  ></a>';}
+            // else if(i=3){picturetr.innerHTML='<a href="https://ani.gamer.com.tw/"><img src="./Images/3.jpg" height="400px"  ></a>';}
+            // else if(i=4){picturetr.innerHTML='<a href="https://www.playstation.com/zh-hant-tw/"><img src="./Images/4.jpg" height="400px"  ></a>';}
+            // else if(i=5){picturetr.innerHTML='<a href="https://www.momoshop.com.tw/main/Main.jsp"><img src="./Images/5.jpg" height="400px"  ></a>';}
+            // else if(i=6){picturetr.innerHTML='<a href="https://www.etmall.com.tw/"><img src="./Images/6.jpg" height="400px"  ></a>';}
+
+
+        };
+        window.setInterval(setClock, 500);
+
+        setClock();     //()立即執行
+    </script>
+
+</body>
+
+</html>

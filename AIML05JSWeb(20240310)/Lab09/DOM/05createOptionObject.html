@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>05createOptionObject.html</title>
+	</head>
+	<body>
+		<select id="idSelectYear"></select>
+        <select id="idSelectMonth"></select>
+	</body>
+
+    <script>
+        // let d=new Date(2024,2,0);  //2024/3/0  3月的第0 天就是2月的最後 1 天
+        // console.log(d);
+        // let dno=d.getDate();
+        // console.log(dno);
+        d=new Date(2024,2,1);  //2024/3/1
+        w=d.getDay();
+        console.log(w);
+
+        document.getElementById("idSelectYear").addEventListener("change",addDay)
+        document.getElementById("idSelectMonth").addEventListener("change",addDay);
+        let yy,mm;
+
+        function addDay(){
+            yy=document.getElementById("idSelectYear").value
+            mm=document.getElementById("idSelectMonth").value
+            console.log(yy,mm);
+        }
+        
+
+        for (let i =2010; i <= 2030; i++) {   //新增月 
+            let opt = document.createElement("option");  //<option></option>
+            opt.setAttribute("value", i);  //<option value="1"></option>
+            let optTxt = document.createTextNode(i);  //1
+            opt.appendChild(optTxt);  //<option value="1">1</option>
+            //opt.value = i;
+            //opt.innerHTML = i;
+            document.getElementById('idSelectYear').appendChild(opt);
+        }
+
+        for (let i = 1; i <= 12; i++) {   //新增月 
+            let opt = document.createElement("option");  //<option></option>
+            opt.setAttribute("value", i);  //<option value="1"></option>
+            let optTxt = document.createTextNode(i);  //1
+            opt.appendChild(optTxt);  //<option value="1">1</option>
+            //opt.value = i;
+            //opt.innerHTML = i;
+            document.getElementById('idSelectMonth').appendChild(opt);
+        }
+    </script>    
+</html>

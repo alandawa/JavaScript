@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+    <style>
+        table,
+        td {
+            border: 2px blue solid;
+            border-collapse: collapse;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <hr>
+    <hr>
+
+    <script>
+
+        document.write(`<table><tr>`)
+
+        for (let j = 1; j < 10; j++) {
+            document.write(`<td>`)
+            for (let i = 2; i < 10; i++) {
+                document.write(`${i}\u00d7${j}=${i * j}<br>`)
+
+            }
+            document.write(`</td>`)
+        }
+        document.write(`</tr></table>`)
+    </script>
+
+</body>
+
+</html>

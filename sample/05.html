@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>05</title>
+    <style>
+        tr,
+        td {
+            border: 2pt blanchedalmond solid;
+        }
+
+        .ttt {
+            background-color: aquamarine;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <span><select id="idSelectYear">
+            <option> </option>
+        </select></span>
+    <span id="idSelectMonthspan"></span>
+    <span id="idSelectdayspan"></span>
+    <div id="idSelectcalendardiv"></div>
+    <div id="date"></div>
+
+
+</body>
+
+<script>
+
+    for (let i = 2020; i <= 2030; i++) {   //新增月 
+        let opt = document.createElement("option");  //<option></option>
+        opt.setAttribute("value", i);  //<option value="1"></option>
+        let optTxt = document.createTextNode(i);  //1
+        opt.appendChild(optTxt);  //<option value="1">1</option>
+        //opt.value = i;
+        //opt.innerHTML = i;
+        document.getElementById('idSelectYear').appendChild(opt);
+    }
+    document.getElementById("idSelectYear").addEventListener("change", addMonth)
+
+    function addMonth() {
+        let day = document.getElementById('idSelectMonthspan');
+        day.innerHTML = '<select id="idSelectMonth"><option> </option></select>';
+
+        for (let i = 1; i <= 12; i++) {   //新增月 
+            let opt = document.createElement("option");  //<option></option>
+            opt.setAttribute("value", i);  //<option value="1"></option>
+            let optTxt = document.createTextNode(i);  //1
+            opt.appendChild(optTxt);  //<option value="1">1</option>
+            //opt.value = i;
+            //opt.innerHTML = i;
+            document.getElementById('idSelectMonth').appendChild(opt);
+            document.getElementById("idSelectMonth").addEventListener("change", addDay);
+        }
+    }
+
+
+    function addDay() {
+        yy1 = document.getElementById("idSelectYear").value
+        mm1 = document.getElementById("idSelectMonth").value
+        let date_01 = new Date(yy1, mm1, 1)
+        yy2 = date_01.getFullYear();
+        mm2 = date_01.getMonth();
+        // console.log(`${yy1}/${mm1}/1`);
+        // console.log(`${yy2}/${mm2}/${dd2}`);
+
+
+        codeChars1 = [1, 3, 5, 7, 8, 10, 0];
+        codeChars2 = [4, 6, 9, 11];
+        codeChars3 = [2012, 2016, 2020, 2024, 2028];
+
+
+        let flag1 = false, flag2 = false, flag3 = false;
+
+        flag1 = codeChars1.includes(mm2);
+        flag2 = codeChars2.includes(mm2);
+        flag3 = codeChars3.includes(yy2);
+
+
+
+        if (flag1)
+            dd2 = 31;
+        else if (flag2)
+            dd2 = 30;
+        else if (flag3)
+            dd2 = 29;
+        else
+            dd2 = 28;
+
+        let day = document.getElementById('idSelectdayspan');
+        day.innerHTML = '<select id="idSelectday"><option> </option></select>';
+
+        for (let i = 1; i <= dd2; i++) {   //新增日 
+            let opt = document.createElement("option");  //<option></option>
+            opt.setAttribute("value", i);  //<option value="1"></option>
+            let optTxt = document.createTextNode(i);  //1
+            opt.appendChild(optTxt);  //<option value="1">1</option>
+            //opt.value = i;
+            //opt.innerHTML = i;
+            document.getElementById('idSelectday').appendChild(opt);
+        }
+
+        console.log(flag1, flag2, flag3, mm2, dd2);
+        let date_02 = new Date(`${yy1}/${mm1}/${dd2}`);
+        console.log(date_02);
+        let date_03 = new Date(`${yy1}/${mm1}/01`);
+        console.log(date_03);
+        let date_04 = date_03.getDay();
+        console.log(date_04);
+        LA = (date_04 + dd2) / 7;
+        LA = Math.ceil(LA)
+        console.log(LA);
+        LAs = (date_04 + dd2) % 7;
+        console.log(LAs);
+
+
+
+        document.getElementById("idSelectday").addEventListener("change", addcalendar);
+    }
+
+
+    function addcalendar() {
+        dd1 = document.getElementById("idSelectday").value;
+        let date_03 = new Date(`${yy1}/${mm1}/01`);
+        let date_04 = date_03.getDay();
+        LA = (date_04 + dd2) / 7;
+        LA = Math.ceil(LA)
+        LAs = (date_04 + dd2) % 7;
+        console.log(LA)
+        console.log(date_04)
+
+        let calendar = document.getElementById('idSelectcalendardiv');
+        // console.log(calendar)
+        calendar.innerHTML = '<table id="idSelectcalendar"></table>';
+        let calendartable = document.getElementById('idSelectcalendar');
+        str = "<thead><tr><td>禮拜日</td><td>禮拜一</td><td>禮拜二</td><td>禮拜三</td><td>禮拜四</td><td>禮拜五</td><td>禮拜六</td></tr></thead>";
+        ss = 0;
+        str += "<tbody>";
+        for (i = 1; i <= LA; i++) {
+            str += "<tr>";
+            for (j = 1; j <= 7; j++) {
+                ss = ss + 1;
+                dd = ss - date_04;
+                let tt
+                if (dd <= 0) { tt = " "; tttt = " "; }
+                else if (dd > dd2) { tt = " "; tttt = " "; }
+                else if (dd > 0 && dd != dd1) { tt = dd; tttt = " "; }
+                else { tt = dd; tttt = `class="ttt"`; }
+
+
+                str += `<td ${tttt}>${tt}</td>`;
+
+            }
+
+
+
+            str += "</tr>";
+        }
+        str += `</tbody>`;
+        calendartable.innerHTML = str;
+
+
+        let dateout = document.getElementById("date");
+        dateout.innerHTML = `你輸入的日期是${yy1}年${mm1}月${dd1}日`
+
+
+
+
+
+    }
+
+
+
+</script>
+
+</html>

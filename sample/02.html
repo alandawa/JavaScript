@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-hant-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>02</title>
+  <style>
+    .q1 {
+      width: 600px;
+      border-bottom: 2px dashed gray;
+      margin: 20px;
+      padding-bottom: 20px;
+    }
+
+    .t1 {
+      float: left;
+      width: 50px;
+      text-align: right;
+    }
+
+    .btns {
+      width: 450px;
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    fieldset {
+      width: 650px;
+      margin: 15px;
+      border: 2px solid red;
+      border-radius: 20px;
+      margin: auto;
+    }
+
+    legend {
+      padding: 5px 15px;
+      margin-left: 30px;
+    }
+
+    fieldset> :last-child {
+      border-bottom: 0;
+    }
+
+    .span1 {
+      margin-left: 50px;
+      margin-top: 0px;
+      font-size: 8pt;
+      font-style: #dddbdb;
+    }
+  </style>
+</head>
+
+<body>
+  <fieldset>
+    <legend>Form Check</legend>
+    <form action="#" method="get" enctype="multipart/form-data">
+      <div class="q1">
+        <label for="userName" class="t1">姓名：</label>
+        <input type="text" name="userName" id="userName" onblur="checkuserName();" />
+        <span id="idsp1"></span><br>
+        <span class="span1">(1.不可空白 2.至少兩個字以上 3.必須全部中文字)</span>
+      </div>
+      <div class="q1">
+        <label for="userPassword" class="t1">密碼：</label>
+        <input type="password" name="userPassword" id="userPassword" onblur="checkPwd();" />
+        <span id="idsp2"></span><br>
+        <span class="span1">(1.不可空白 2.至少6個字以上且必須包含英數字 特殊字元!@#$%^& )</span>
+
+
+
+      </div>
+      <div class="q1">
+        <label for="text" class="t1">日期:</label>
+        <input type="text" name="text" id="text" onblur="checktext();" maxlength="10" />
+        <span id="idsp3"></span><br>
+        <span class="span1">格式:西元年/月/日(yyyy/mm/dd)</span>
+
+
+
+      </div>
+  </fieldset>
+
+
+  </form>
+
+  <script>
+    function checkuserName() {
+      let cun = document.getElementById("userName");
+      let cunval = cun.value;
+      let cunvall = Number(cunval.length);
+      let sp1 = document.getElementById("idsp1");
+
+
+      for (let index1 = 0; index1 < cunvall; index1++) {
+        let ch = cunval.charCodeAt(Number(index1));
+        console.log(ch);
+        if (cunvall < 3)
+          sp1.innerHTML = '<img src="./Images/error.png" width="18px">請輸入大於兩個字 ;'
+        else if (ch < 0x4e00)
+          sp1.innerHTML = '<img src="./Images/error.png" width="18px">內容有非中文 ;'
+        else if (ch > 0x9fff)
+          sp1.innerHTML = '<img src="./Images/error.png" width="18px">內容有非中文 ;'
+        else
+          sp1.innerHTML = '<img src="./Images/accepted.png" width="18px">正確輸入 ;';
+      }
+    }
+
+
+
+    function checkPwd() {
+      //取得idPwd元素
+      let ipwde = document.getElementById("userPassword");
+      //取得idPwd元素值
+      // console.log(ipwde);
+      //判斷元素值是否為空白，密碼長度是否大於6
+      let ipwdeval = ipwde.value;
+      // console.log(ipwdeval);
+      let ipwdevall = ipwdeval.length;
+      // console.log(ipwdevall);
+      let sp2 = document.getElementById("idsp2");
+      // console.log(sp);
+      codeChars1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      codeChars2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+      codeChars3 = ['!', '@', '#', '$', '%', '^', '&', '*'];
+
+      let flag1 = false, flag2 = false, flag3 = false;
+
+
+
+
+      for (i = 0; i < ipwdevall; i++) {
+        pwstr = ipwdeval.substr(i, 1);
+        flag1 = codeChars1.includes("pwstr");
+        break;
+      }
+      for (i = 0; i < ipwdevall; i++) {
+        pwstr = ipwdeval.substr(i, 1);
+        flag2 = codeChars2.includes("pwstr");
+        break;
+      }
+      for (i = 0; i < ipwdevall; i++) {
+        pwstr = ipwdeval.substr(i, 1);
+        flag3 = codeChars3.includes("pwstr");
+        break;
+      }
+
+
+
+      if (ipwdeval == "") {
+        sp2.innerHTML = '<img src="./Images/error.png" width="18px">' + "請輸入密碼";
+      }
+      else if (ipwdevall < 6) {
+        sp2.innerHTML = '<img src="./Images/error.png" width="18px">' + "請輸入大於等於6個字";   //如果長度是否大於6，判斷是否包含字母、數字、特殊符號
+
+      }
+      else if (flag1 && flag2 && flag3) {
+
+        sp2.innerHTML = '<img src="./Images/accepted.png" width="18px">正確輸入 ;'
+      }
+      else {
+        sp2.innerHTML = '<img src="./Images/error.png" width="18px">' + "密碼中必須含有特殊字元和數字英文";
+      }
+    }
+
+
+
+    function checktext() {
+      let ctt = document.getElementById("text");
+      let cttval = ctt.value
+      let sp3 = document.getElementById("idsp3");
+      let d = new Date(cttval);
+      codeChars4 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      let flag4 = false, flag5 = false;
+
+
+      flag4 = ["/"].includes(cttval.substr(4, 1));
+      flag5 = ["/"].includes(cttval.substr(7, 1));
+
+
+
+      let yy1 = Number(cttval.substr(0, 4));
+      let mm1 = Number(cttval.substr(5, 2));
+      let dd1 = Number(cttval.substr(8, 2));
+      let yy2 = d.getFullYear();
+      let mm2 = d.getMonth() + 1;
+      let dd2 = d.getDate();
+      console.log(flag5);
+      console.log(cttval.substr(7, 1));
+      console.log(`${yy1}/${mm1}/${dd1};${yy2}/${mm2}/${dd2}`)
+
+
+
+
+      if (flag4 && flag5) {
+
+        if (yy1 == yy2 && mm1 == mm2 && dd1 == dd2) {
+          sp3.innerHTML = '<img src="./Images/accepted.png" width="18px">正確輸入 ;'
+        }
+        else {
+          sp3.innerHTML = '<img src="./Images/error.png" width="18px">' + "錯誤輸入";
+        }
+      }
+      else {
+        sp3.innerHTML = '<img src="./Images/error.png" width="18px">' + "錯誤輸入";
+      }
+
+
+    }
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

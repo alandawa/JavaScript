@@ -1,0 +1,409 @@
+標記 標籤
+成對標籤
+單一標籤(<img src="">)
+
+
+
+class (類別 模型 人類 )
+實體 物件
+property (屬性 特性)
+姓名 = 沛騰
+身高=180
+手 = 2
+膚色 = 黃 
+
+方法(method)本身具備動作
+哭
+看
+走
+跑
+
+物件(實體)= new 人類()
+沛騰物件= new 人類()  class()
+
+銀華物件= new 人類()
+
+
+銀華 -> 打(事件 物件與物件溝通) ->沛騰
+膚色 = 青 屬性改變
+跑 方法
+
+Timer 計時器
+
+標籤就是元素(element)就是物件
+
+儲存
+服務
+
+block tag
+inline tag
+
+java ,html 電腦語言  人 ->電腦 溝通語言
+電腦 -> 電腦 協定
+
+bbs
+ftp ftp server
+smtp,pop3 mail server
+
+1. save 儲存 網頁
+2. service 服務
+
+標籤 元素 物件
+
+購物車
+
+HTML expresson 運算式 2+3
+HTML expresson標籤
+
+變數(box) 暫時儲存空間(記憶體)
+
+串接
+0-9ABCDEF
+binary 二進制
+
+if(){}
+for(){}
+while(){}
+
+function aa(){}  x
+
+變數範圍
+變數生命週期
+
+ASCII 連結
+https://zh.wikipedia.org/zh-tw/ASCII
+
+00
+01
+10
+11
+
+26+26+10=62
+2 的 6次方 64
+2 的 7次方 128
+2 的 8次方 256
+
+1byte位元組 =1個英文字=8bits(binary digit) 位元
+
+31->1
+41->A
+61->a
+
+256*256=65536
+
+p29
+variant 變種(資料類型)
+var a=10;
+a="abc";
+
+NaN not a number
+
+
+jscript 
+typescript
+actionscript
+Global
+
+let g=new Global()
+g.parseInt()  //x
+
+Global.parseInt()  //x
+parseInt
+
+"10"
+"2"
+
+31(16)49(10)
+32(16)50(10)
+
+
+90-99 A
+80-89 B
+
+
+scroe 95/10=parseInt(9.5)=9
+case 9: console.log("A");
+
+匿名函數就是函數宣告沒有函數名稱
+
+
+var a=10;
+var a;
+a=10;
+
+aa11@@
+a1@+++
+
+<tag></tag>
+<tag>
+<div>content</div>
+<input type="text" value="123">
+
+日期格式
+
+let dateAry=[0,31,28,31,30
+
+binding 繫結 綁定 註冊 register
+
+HTML 架構 
+CSS 外觀
+JavaScript 互動 
+
+MVC
+Model ->HTML
+View -> CSS
+Controller ->JS 
+
+http -> Web 網站 
+mail server ->pop3 ,smtp
+ftp server -> ftp
+
+物件=property+method()
+
+執行過程中改變
+
+HTML expressions (計算式  運算式) 2+3 標籤
+document.write("<p>xxx</p><br>"); //ok
+window.alert("<p>xxx</p><br>"); //erorr
+
+id 唯一
+name 多個
+
+variant 變種(類)
+
+function xx(){...}
+
+A->41(16)->65(10)
+a->61(16)->97(10)
+0->30(16)->48(10)
+
+參考資料型別
+
+var let variant
+
+//global
+let g=new Global();
+g.parseInt("aaa");  //error
+Global.parseInt("aaa");  //error
+
+parseInt("aaa");  //ok
+
+"10"
+"2"
+
+0<age<=6 免票
+6<age<=25 學生票
+25<age<65 全票
+65<=age   免票
+
+
+2023/8/9
+
+匿名函數就是函數宣告沒有函數名稱
+
+google ->IIFE MDN
+https://developer.mozilla.org/zh-TW/docs/Glossary/IIFE
+
+1a@+++  //ok
+aaaaaa
+
+1byte=8bits
+bit=biarny digit二進制
+
+編碼目的 儲存  傳輸
+
+cars["barnd"]="tesla";
+
+
+35, 6, 78, 12, 54, 9
+
+6,35
+6,35,78
+6,12,35,78
+6,12,35,54,78
+6,12,9,35,54,78
+6,9,12,35,54,78
+
+o={a} ary=[1,2,3]
+o.a o["a"]
+ary[1]=2
+
+JSON = {[],[],[]}
+[{},{}]
+
+google xml
+https://zh.wikipedia.org/zh-tw/XML
+
+AJAX 非同步傳輸 json
+
+骰子 1~6
+
+let ary=new Array();
+ary[0]="abc"
+
+let ary=["abc",...]
+
+let ary=new Array("abc",...)
+
+26+26+10=62
+
+HTML canvas
+
+使用pattern 定義程式邏輯規則
+
+object.property=value;
+object.method();
+
+4e00~9fff
+
+=
+binding 繫結 綁定
+register 註冊 ECMAScript
+
+function fAdd(){
+
+..
+}
+
+let fAdd2=function(){....}
+
+fAdd() 呼叫 calling
+console.log(fAdd);  印出 
+
+函數宣告
+匿名函數
+箭頭函數
+
+匿名函數就是函數宣告沒有函數名稱
+
+true->phase 1,2
+false->phase 2,3
+true->false
+
+1. css hover
+2. JS 2張圖 M6
+3. JS+CSS 1張圖 M7
+
+font-size
+fontSize
+
+<p style="font-size:20px">xxx</p>
+
+<p class="s2">xxx</p>
+.s2{color:bule}
+
+<p style="color:red" class="s2">xxx</p>
+
+MVC
+Model ->HTML
+View ->CSS
+Controller -> JS
+
+0x4e00 ~ 0x9fff
+19968
+
+hover
+1. css hover
+2. JS 2張圖 U6
+3. JS+css 1張圖 U7
+
+動態就是程式執行過程中改變(style,content)
+
+<tag style="font-size:36px" ....">
+document.getElementById("xx").style.fontSize="36px"
+
+<tag class="...">
+
+css 寫法
+1. inline(1)(1)
+2. embedding(2)
+3. linking(2)
+
+selector {
+1.type(3)(4)
+2.class(2)(3)
+3.id(1)(2)
+}
+
+firefox textContent
+IE8 innerText
+
+RWD
+
+object.addEventListener
+object.attachEvent
+
+bookmark 書籤
+錨
+
+
+window.alert()
+window.prompt()
+
+
+href  hyper refenerce
+
+this
+
+1秒之後，每隔１秒執行 function 一次
+
+JS,jQuery,bootstrap
+
+內建物件(string,date,json...)U5，
+BOM(U8)window，
+DOM(U9)，
+HTMLElement 標籤 就是物件
+
+
+queryString
+
+sql server port 1433
+web server 8080
+
+窗口  port
+
+192.168.50.50
+
+
+2023/8/11
+
+把一張圖分割為幾個區塊
+google ->image area tools
+https://www.image-map.net/
+
+排版
+frameset 框架
+
+
+1.local variable 
+
+select
+<button
+<input type="button"
+get,put
+換行或空格都是node
+
+<p>ppp</p>
+<img src="aa">
+<select>
+<option value="1">A</option>
+
+google->whatwg
+https://zh.wikipedia.org/zh-tw/%E7%B6%B2%E9%A0%81%E8%B6%85%E6%96%87%E6%9C%AC%E6%87%89%E7%94%A8%E6%8A%80%E8%A1%93%E5%B7%A5%E4%BD%9C%E5%B0%8F%E7%B5%84
+https://www.ithome.com.tw/news/130950
+
+google->DOM spec
+https://dom.spec.whatwg.org/
+
+
+換行或空格也是一個 node
+
+
+<select>
+<option value="1">A</option>
+<option value="2">B</option>
+<option value="3">C</option>
+</select>
+
+
+15397

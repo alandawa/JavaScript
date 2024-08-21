@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>03eventHandlerMouseoverout.html</title>
+</head>
+<body>
+    <img id="idimg1" src="Images/star.gif" />
+    <img id="idimg2" src="Images/star.gif" />
+    <script>
+        document.getElementById("idimg1").addEventListener("mouseover",mouseover);  //事件繫結，滑鼠滑入
+        document.getElementById("idimg1").addEventListener("mouseout",mouseout);    //事件繫結，滑鼠滑出
+        document.getElementById("idimg2").addEventListener("mouseover",mouseover2);  //事件繫結，滑鼠滑入
+        document.getElementById("idimg2").addEventListener("mouseout",mouseout2);    //事件繫結，滑鼠滑出
+
+        function mouseover() {
+            console.log(this.id);
+            document.getElementById("idimg1").src="Images/chngstar.gif";
+        }
+
+        function mouseout() {
+            document.getElementById("idimg1").src="Images/star.gif";
+        }    
+        function mouseover2() {
+            console.log(this.id);
+            document.getElementById("idimg1").src="Images/chngstar.gif";
+            document.getElementById("idimg2").src="Images/chngstar.gif";
+        }
+
+        function mouseout2() {
+            document.getElementById("idimg1").src="Images/star.gif";
+            document.getElementById("idimg2").src="Images/star.gif";
+        }            
+    </script>
+</body>
+</html>

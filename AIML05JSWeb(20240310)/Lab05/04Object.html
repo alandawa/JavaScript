@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>04Object.html</title>
+</head>
+<body>
+    <div id="myDiv"></div>
+    <script>
+        function disp1f(){
+            return `${this.brand}-${this["max speed"]}`
+        }
+        let cars={
+            brand:"tesla",
+            "max speed":300,
+            color:"white",
+            disp1:disp1f,
+            disp2:function(){
+                return `${this.color}:${this["max speed"]}`
+            }
+        }
+        // console.log(cars.brand);  //tesla
+        // console.log(cars["max speed"]);        
+        // console.log(cars);
+        // console.log(cars.disp1);
+        // console.log(cars.disp1());
+        // console.log(cars.disp2());  //呼叫方法
+        // console.log(disp1f());  //函數呼叫
+
+
+        //for..in
+        let myDiv=document.getElementById("myDiv");
+        for(let prop in cars){
+            // console.log(prop);
+            // console.log(cars[prop]);
+            // console.log(`${prop},${cars[prop]}`);
+            // console.log(`cars[${prop}]=${cars[prop]}`);
+            console.log(`<li>cars[${prop}]=${cars[prop]}</li>`);
+            myDiv.innerHTML+=`<li>cars[${prop}]=${cars[prop]}</li>`;
+        }
+    
+    </script>        
+</body>
+</html>

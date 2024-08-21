@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .a {
+            margin: auto;
+            width: 800px;
+        }
+
+        .s {
+            filter: grayscale(1);
+            width: 150px;
+            /*沒有任何色彩的黑白影像*/
+
+        }
+
+        .n {
+            filter: grayscale(0);
+            width: 150px;
+            /*顏色不變*/
+        }
+    </style>
+
+
+    <title>03</title>
+</head>
+
+<body>
+    <div class="a">
+        <img id="idstar1" class="s" src="./Images/star.png" onclick="off()" ondblclick="on()" />
+        <img id="idstar2" class="s" src="./Images/star.png" onclick="off()" ondblclick="on()">
+        <img id="idstar3" class="s" src="./Images/star.png" onclick="off()" ondblclick="on()" />
+        <img id="idstar4" class="s" src="./Images/star.png" onclick="off()" ondblclick="on()" />
+        <img id="idstar5" class="s" src="./Images/star.png" onclick="off()" ondblclick="on()" />
+        <div class="a" id="idstar" style="text-align: center;height: 30px;"></div>
+    </div>
+
+
+
+
+
+
+    <script>
+        let flag1 = true;
+        function on() {
+            flag1 = true;
+        }
+        function off() {
+            flag1 = false;
+        }
+
+
+
+        let idstarx = document.getElementById("idstar")
+
+
+        for (let i = 1; i < 6; i++) {
+            document.getElementById("idstar" + i).addEventListener("mouseover", () => {
+                for (j = 1; j <= i; j++) {
+                    if (flag1) {
+                        document.getElementById("idstar" + j).className = "n";
+                        idstarx.innerHTML = `你得到了${i}顆星`;
+                    }
+                }
+            });  //事件繫結，滑鼠滑入
+
+            document.getElementById("idstar" + i).addEventListener("mouseout", () => {
+                for (j = 1; j <= i; j++) {
+                    if (flag1) {
+                        document.getElementById("idstar" + j).className = "s";
+                        idstarx.innerHTML = "";
+                    }
+                }
+            });    //事件繫結，滑鼠滑出
+        }
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>

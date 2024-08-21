@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>06</title>
+    <style>
+        table {
+            border: 5pt blanchedalmond solid;
+        }
+
+        tr,
+        td {
+            border: 2pt blanchedalmond solid;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <select id="country">
+        <option> </option>
+    </select>
+    <select id="district">
+        <option> </option>
+    </select>
+    <div id="div1"></div>
+    <div id="result"></div>
+
+
+    <!-- <script src="taiwan_districts.js" ></script> -->
+    <script type="text/javascript" src="taiwan_districts.js"></script>
+    <script>
+
+        i = 0
+        for (let value of data) {
+            country = value.name;
+            let opt = document.createElement("option");  //<option></option>
+            opt.setAttribute("value", i);  //<option value="1"></option>
+            let optTxt = document.createTextNode(country);  //1
+            i++;
+            opt.appendChild(optTxt);  //<option value="1">1</option>
+            document.getElementById('country').appendChild(opt);
+
+
+        }
+
+
+        let myDiv = document.getElementById("div1")
+
+        document.getElementById("country").addEventListener("change", getcountry);
+
+        function getcountry() {
+            x = document.getElementById("country").value
+            for (let j = 0; j < (Object.values(data[x].districts)).length; j++) {
+                let zips = (Object.values(data[x].districts))[j].zip
+                let names = (Object.values(data[x].districts))[j].name
+                let opt = document.createElement("option");  //<option></option>
+                opt.setAttribute("value", zips);  //<option value="1"></option>
+                let optTxt = document.createTextNode(names);  //1
+                opt.appendChild(optTxt);  //<option value="1">1</option>
+                document.getElementById('district').appendChild(opt);
+                // console.log(names,zips)
+            }
+        }
+
+        document.getElementById("district").addEventListener("change", gettable);
+
+        function gettable() {
+            x = document.getElementById("country").value
+            str1 = `<table><tr><td rowspan="${(Object.values(data[x].districts)).length + 1}" >${data[x].name}</td></tr>`
+
+            for (let j = 0; j < (Object.values(data[x].districts)).length; j++) {
+                let zips = (Object.values(data[x].districts))[j].zip
+                let names = (Object.values(data[x].districts))[j].name
+                str1 += `<tr><td>${zips}</td><td>${names}</td></tr>`;
+            }
+            str1 += `</table>`
+            myDiv.innerHTML = str1
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
